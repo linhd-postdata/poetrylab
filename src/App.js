@@ -18,7 +18,7 @@ class App extends Component {
 
   addPoem(title, text) {
     this.setState({
-      poems: [...this.state.poems, {title, text, analysis: {}}],
+      poems: [...this.state.poems, {title, text, analysis: null}],
       current: this.state.poems.length,
     })
   }

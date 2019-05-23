@@ -19,6 +19,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import AttachFileIcon from '@material-ui/icons/AttachFile';
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
+import Analysis from './Analysis';
 
 const drawerWidth = 240;
 
@@ -92,15 +93,20 @@ class Main extends React.Component {
     this.setState({ open: false });
   };
 
+  componentWillMount() {
+    const { current, poems } = this.props;
+    const poem = poems[current];
+    if (poem && poem.text && !poem.analysis) {
+      console.log("ANALYSIS!")
+    }
+  }
+
   render() {
-    const { classes, theme, poems, current } = this.props;
+    const { classes, theme, current, poems } = this.props;
     const { open } = this.state;
     const poem = poems[current];
     const title = poem ? poem.title : "";
-    const stanzas = poem ? poem.text.split("\n\n").map((stanza, index) => (
-      <Typography key={index} paragraph>{stanza}</Typography>
-    )) : "To start, Add a new poem.";
-
+    const analysis = poem ? <Analysis poem={poem} /> : "To start, Add a new poem."
     return (
       <div className={classes.root}>
         <CssBaseline />
@@ -165,7 +171,7 @@ class Main extends React.Component {
           })}
         >
           <div className={classes.drawerHeader} />
-          {stanzas}
+           { analysis }
         </main>
       </div>
     );
