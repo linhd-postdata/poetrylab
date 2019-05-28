@@ -14,6 +14,7 @@ import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 import TextField from '@material-ui/core/TextField';
+import Config from '../Config';
 
 const styles = theme => ({
   appBar: {
@@ -44,8 +45,8 @@ function Transition(props) {
 class AddForm extends React.Component {
   state = {
     open: false,
-    poemTitle: "",
-    poemText: "",
+    poemTitle: Config.POEM_TITLE,
+    poemText: Config.POEM_TEXT,
   };
 
   handleClickOpen = () => {
@@ -100,8 +101,9 @@ class AddForm extends React.Component {
                 required
                 label="Title"
                 margin="normal"
+                value={this.state.poemTitle}
                 onChange={event => this.handleTextChange(event, "poemTitle")}
-              />  
+              />
             </ListItem>
             <ListItem button>
               <TextField
@@ -112,8 +114,9 @@ class AddForm extends React.Component {
                 margin="normal"
                 variant="filled"
                 helperText="You can use multiline"
+                value={this.state.poemText}
                 onChange={event => this.handleTextChange(event, "poemText")}
-              />  
+              />
             </ListItem>
           </List>
         </Dialog>

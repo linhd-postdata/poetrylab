@@ -14,13 +14,21 @@ class App extends Component {
     super(props);
     this.addPoem = this.addPoem.bind(this);
     this.changeCurrentPoem = this.changeCurrentPoem.bind(this);
+    this.updatePoem = this.updatePoem.bind(this);
   }
 
   addPoem(title, text) {
     this.setState({
-      poems: [...this.state.poems, {title, text, analysis: null}],
+      poems: [...this.state.poems, {title, text, analysis: {}}],
       current: this.state.poems.length,
     })
+  }
+
+  updatePoem(poemProps) {
+    const { poems, current } = this.state;
+    poems[current] = poemProps;
+    this.setState({ poems });
+    this.forceUpdate();
   }
 
   changeCurrentPoem(index) {
@@ -32,7 +40,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Main {...this.state} changeCurrent={this.changeCurrentPoem} />
+        <Main {...this.state}
+          changeCurrent={this.changeCurrentPoem}
+          updatePoem={this.updatePoem}
+        />
         <AddForm onSubmit={this.addPoem} />
       </div>
     );

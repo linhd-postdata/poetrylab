@@ -20,6 +20,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import AttachFileIcon from '@material-ui/icons/AttachFile';
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import Analysis from './Analysis';
+import { isEmpty, analyzePoem } from '../Utils';
 
 const drawerWidth = 240;
 
@@ -81,9 +82,14 @@ const styles = theme => ({
 });
 
 class Main extends React.Component {
-  state = {
-    open: false,
-  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false,
+      operations: ["scansion", "enjambment"],
+    };
+  }
 
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -93,11 +99,15 @@ class Main extends React.Component {
     this.setState({ open: false });
   };
 
-  componentWillMount() {
+  componentDidUpdate() {
     const { current, poems } = this.props;
     const poem = poems[current];
-    if (poem && poem.text && !poem.analysis) {
-      console.log("ANALYSIS!")
+    const text = poem ? poem.text : null;
+    const analysis = poem ? poem.analysis : {};
+    if (isEmpty(analysis) && text.length !== 0) {
+      analyzePoem(text,
+                  this.state.operations,
+                  data => this.props.updatePoem({...poem, analysis: data}));
     }
   }
 
@@ -106,7 +116,8 @@ class Main extends React.Component {
     const { open } = this.state;
     const poem = poems[current];
     const title = poem ? poem.title : "";
-    const analysis = poem ? <Analysis poem={poem} /> : "To start, Add a new poem."
+    const text = poem ? poem.text : "";
+    const analysis = poem ? <Analysis poem={poem} /> : "To start, add a poem";
     return (
       <div className={classes.root}>
         <CssBaseline />
@@ -172,6 +183,7 @@ class Main extends React.Component {
         >
           <div className={classes.drawerHeader} />
            { analysis }
+           { poem && isEmpty(poem.analysis) && text.length !== 0  ? "Analyzing..." : "" }
         </main>
       </div>
     );
@@ -184,6 +196,7 @@ Main.propTypes = {
   poems: PropTypes.array.isRequired,
   current: PropTypes.number.isRequired,
   changeCurrent: PropTypes.func.isRequired,
+  updatePoem: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(Main);
