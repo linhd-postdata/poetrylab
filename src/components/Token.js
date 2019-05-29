@@ -30,9 +30,10 @@ class Token extends React.Component {
     </IconButton>);
     let grid;
     if (syllables) {
-      grid = syllables.map(syllable => (
+      grid = syllables.map((syllable, index) => (
         [<Chip
-          color={syllable.is_stressed ? "primary" : ""}
+          key={`$${syllable}${index}`}
+          color={syllable.is_stressed ? "primary" : "default"}
           label={ syllable.syllable } />,
           syllable.has_synalepha ? synalepha : "",
         ]
@@ -50,7 +51,7 @@ class Token extends React.Component {
 
 Token.propTypes = {
   symbol: PropTypes.string,
-  syllables: PropTypes.arrayOf
+  syllables: PropTypes.array
 };
 
 export default withStyles(styles)(Token);

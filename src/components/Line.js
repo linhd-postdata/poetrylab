@@ -11,7 +11,7 @@ const styles = theme => ({
     width: "100%",
     margin: "0.25em",
   },
-  enjabment: {
+  enjambment: {
     padding: 0,
   }
 });
@@ -20,26 +20,29 @@ class Line extends React.Component {
 
   render() {
     const { classes, tokens, annotations } = this.props;
-    const line = tokens.map(token => (
-      token.symbol ? <Token symbol={token.symbol} /> : <Token syllables={token.word} />
+    const line = tokens.map((token, index) => (
+      token.symbol ? <Token key={`$${token.symbol || token.word}${index}`} symbol={token.symbol} /> : <Token syllables={token.word} />
     ))
-    const enjambment = (<IconButton
+    const hasEnjambment = (
+      annotations.enjambment && annotations.enjambment.length !== 0
+    );
+    const enjambment = hasEnjambment ? (<IconButton
       color="inherit"
       aria-label="Enjambment"
-      className={classes.enjabment}
+      className={classes.enjambment}
     >
       <KeyboardReturnIcon />
-    </IconButton>);
+    </IconButton>) : "";
     return (
       <div className={classes.line}>
-        { [line, annotations.enjabment ? enjambment : ""] }
+        <span>{ line }</span><span>{ enjambment }</span>
       </div>
     );
   }
 }
 
 Line.propTypes = {
-  tokens: PropTypes.arrayOf.isRequired,
+  tokens: PropTypes.array.isRequired,
   annotations: PropTypes.object
 };
 
