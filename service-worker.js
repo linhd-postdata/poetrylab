@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/poetrylab/precache-manifest.d6304f1d685be485cc75c798687c868c.js"
+  "/poetrylab/precache-manifest.cd63125dac9a039811d859fa289683e0.js"
 );
 
 self.addEventListener('message', (event) => {
