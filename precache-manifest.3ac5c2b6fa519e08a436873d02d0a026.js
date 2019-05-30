@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bdfb8cd09d9d686937017c55a14bb9fb",
+    "revision": "132919cd49d85985ef489d07c4c3e800",
     "url": "/poetrylab/index.html"
   },
   {
-    "revision": "4d6108b750f5dc5ae5bf",
+    "revision": "69ffa22f8cebc89059e3",
     "url": "/poetrylab/static/css/main.34de6062.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/poetrylab/static/js/2.a45d87f8.chunk.js"
   },
   {
-    "revision": "4d6108b750f5dc5ae5bf",
-    "url": "/poetrylab/static/js/main.20f2cc16.chunk.js"
+    "revision": "69ffa22f8cebc89059e3",
+    "url": "/poetrylab/static/js/main.0f5f7f86.chunk.js"
   },
   {
     "revision": "35e141ab8d98d3975ca8",
