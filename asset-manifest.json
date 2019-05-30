@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/poetrylab/static/css/main.34de6062.chunk.css",
-    "main.js": "/poetrylab/static/js/main.c0e3a6d9.chunk.js",
-    "main.js.map": "/poetrylab/static/js/main.c0e3a6d9.chunk.js.map",
+    "main.js": "/poetrylab/static/js/main.20f2cc16.chunk.js",
+    "main.js.map": "/poetrylab/static/js/main.20f2cc16.chunk.js.map",
     "runtime~main.js": "/poetrylab/static/js/runtime~main.4ea33ea9.js",
     "runtime~main.js.map": "/poetrylab/static/js/runtime~main.4ea33ea9.js.map",
     "static/js/2.a45d87f8.chunk.js": "/poetrylab/static/js/2.a45d87f8.chunk.js",
     "static/js/2.a45d87f8.chunk.js.map": "/poetrylab/static/js/2.a45d87f8.chunk.js.map",
     "index.html": "/poetrylab/index.html",
-    "precache-manifest.cd63125dac9a039811d859fa289683e0.js": "/poetrylab/precache-manifest.cd63125dac9a039811d859fa289683e0.js",
+    "precache-manifest.52eea3736ec4da54dde3380b514a5b78.js": "/poetrylab/precache-manifest.52eea3736ec4da54dde3380b514a5b78.js",
     "service-worker.js": "/poetrylab/service-worker.js",
     "static/css/main.34de6062.chunk.css.map": "/poetrylab/static/css/main.34de6062.chunk.css.map"
   }
