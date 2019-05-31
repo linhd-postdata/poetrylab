@@ -104,7 +104,7 @@ class Main extends React.Component {
     const poem = poems[current];
     const text = poem ? poem.text : null;
     const analysis = poem ? poem.analysis : {};
-    if (isEmpty(analysis) && text.length !== 0) {
+    if (isEmpty(analysis) && text) {
       analyzePoem(text,
                   this.state.operations,
                   data => this.props.updatePoem({...poem, analysis: data}));
@@ -183,7 +183,7 @@ class Main extends React.Component {
         >
           <div className={classes.drawerHeader} />
            { analysis }
-           { poem && isEmpty(poem.analysis) && text.length !== 0  ? "Analyzing..." : "" }
+           { poem && isEmpty(poem.analysis) && text  ? "Analyzing..." : "" }
         </main>
       </div>
     );
