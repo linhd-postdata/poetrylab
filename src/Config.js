@@ -1,4 +1,4 @@
-const API_ROOT = "http://localhost:5000/";  // 62.204.199.36
+const API_ROOT = process.env.REACT_APP_API_ROOT || "http://localhost:5000/";
 const POEM_TITLE = "El Príncipe constante";
 const POEM_TEXT = 
 `Éstas que fueron pompa y alegría
