@@ -24,23 +24,21 @@ const styles = theme => ({
     flex: 1,
   },
   fab: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing(1),
     position: 'absolute',
     float: 'right',
-    bottom: theme.spacing.unit,
-    right: theme.spacing.unit,
+    bottom: theme.spacing(1),
+    right: theme.spacing(1),
   },
   extendedIcon: {
-    marginRight: theme.spacing.unit,
+    marginRight: theme.spacing(1),
   },
   textarea: {
     width: "50em",
   },
 });
 
-function Transition(props) {
-  return <Slide direction="up" {...props} />;
-}
+const Transition = React.forwardRef((props, ref) => <Slide direction="up" {...props} ref={ref} />);
 
 class AddForm extends React.Component {
   state = {
