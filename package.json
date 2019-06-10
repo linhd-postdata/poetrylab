@@ -18,7 +18,7 @@
     "start": "react-scripts start",
     "build": "REACT_APP_API_ROOT=http://62.204.199.36:5000/ react-scripts build",
     "ci-build": "react-scripts build",
-    "test": "react-scripts test --coverage",
+    "test": "react-scripts test --coverage && codecov",
     "snaps": "react-scripts test -u",
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build"
@@ -39,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "codecov": "^3.5.0",
     "gh-pages": "^2.0.1",
     "react-test-renderer": "^16.8.6"
   }
