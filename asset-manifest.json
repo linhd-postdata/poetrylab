@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/poetrylab/static/css/main.34de6062.chunk.css",
+    "main.js": "/poetrylab/static/js/main.6c75fe5f.chunk.js",
+    "main.js.map": "/poetrylab/static/js/main.6c75fe5f.chunk.js.map",
+    "runtime~main.js": "/poetrylab/static/js/runtime~main.4ea33ea9.js",
+    "runtime~main.js.map": "/poetrylab/static/js/runtime~main.4ea33ea9.js.map",
+    "static/js/2.bd5057cb.chunk.js": "/poetrylab/static/js/2.bd5057cb.chunk.js",
+    "static/js/2.bd5057cb.chunk.js.map": "/poetrylab/static/js/2.bd5057cb.chunk.js.map",
+    "index.html": "/poetrylab/index.html",
+    "precache-manifest.95a1fc0821410ed2e739b7583a5888fb.js": "/poetrylab/precache-manifest.95a1fc0821410ed2e739b7583a5888fb.js",
+    "service-worker.js": "/poetrylab/service-worker.js",
+    "static/css/main.34de6062.chunk.css.map": "/poetrylab/static/css/main.34de6062.chunk.css.map"
+  }
+}
