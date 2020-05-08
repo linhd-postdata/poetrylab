@@ -4,6 +4,7 @@ import IconButton from '@material-ui/core/IconButton';
 import SpaceBarIcon from '@material-ui/icons/SpaceBar';
 import { withStyles } from '@material-ui/core/styles';
 import { Chip } from '@material-ui/core';
+import Entity from './Entity';
 
 const styles = theme => ({
   token: {
@@ -20,7 +21,7 @@ const styles = theme => ({
 class Token extends React.Component {
 
   render() {
-    const { classes, symbol, syllables } = this.props;
+    const { classes, symbol, syllables, entity } = this.props;
     const synalepha = (<IconButton
       color="inherit"
       aria-label="Synalepha"
@@ -43,7 +44,10 @@ class Token extends React.Component {
     }
     return (
       <div className={classes.token}>
-        { [grid, <span style={{ marginRight: "0.75em" }} />] }
+        {[
+          entity ? <Entity {...entity} children={grid.flat()} /> : grid,
+          <span style={{ marginRight: "0.75em" }} />
+        ]}
       </div>
     );
   }
@@ -51,7 +55,8 @@ class Token extends React.Component {
 
 Token.propTypes = {
   symbol: PropTypes.string,
-  syllables: PropTypes.array
+  syllables: PropTypes.array,
+  entity: PropTypes.object,
 };
 
 export default withStyles(styles)(Token);

@@ -24,7 +24,10 @@ class Analysis extends React.Component {
       stanzas = poem.analysis.scansion.map((line, index) => (
         <Line
           tokens={line.tokens}
-          annotations={{enjambment: poem.analysis.enjambment[index] || []}}
+          annotations={{
+            enjambment: poem.analysis.enjambment[index] || {},
+            entities: poem.analysis.entities[index] || {}
+          }}
         />
       ));
     }
