@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
+import LinearProgress from '@material-ui/core/LinearProgress';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
@@ -87,7 +88,7 @@ class Main extends React.Component {
     super(props);
     this.state = {
       open: false,
-      operations: ["scansion", "enjambment"],
+      operations: ["scansion", "enjambment", "entities"],
     };
   }
 
@@ -183,7 +184,7 @@ class Main extends React.Component {
         >
           <div className={classes.drawerHeader} />
            { analysis }
-           { poem && isEmpty(poem.analysis) && text  ? "Analyzing..." : "" }
+           { poem && isEmpty(poem.analysis) && text ? [<LinearProgress key="analyzing-progress" />, "Analyzing..."] : "" }
         </main>
       </div>
     );
