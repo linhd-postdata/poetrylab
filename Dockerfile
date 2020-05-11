@@ -1,7 +1,6 @@
 # build environment
 FROM node:12.16.3-alpine as build
 WORKDIR /app
-# ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json ./
 RUN yarn --network-timeout 300000
 COPY . ./
