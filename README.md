@@ -66,3 +66,14 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+## Docker
+A Docker image can be build using:
+``
+$ docker build . -t linhdpostdata/poetrylab
+``
+And the run:
+``
+$ docker run -it linhdpostdata/poetrylab
+``

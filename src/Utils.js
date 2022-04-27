@@ -1,3 +1,4 @@
+import { tokenize } from 'string-punctuation-tokenizer';
 import Config from './Config';
 
 const isEmpty = (obj) => (
@@ -22,8 +23,37 @@ const analyzePoem = (text, operations, callback) => {
     return {};
   })
   .then(data => {
-    if (!isEmpty(data)) callback(data);
+    if (!isEmpty(data)) {
+      callback(cleanEntities(text, data));
+    };
   });
 }
 
-export { isEmpty, analyzePoem };
+const cleanEntities = (text, data) => {
+  let lines = text.split(/[\n]+/);
+  let entities = {};
+  let index = 0;
+  let entity = data.entities[index];
+  lines.forEach((line, lineIndex) => {
+    let lineTokens = {};
+    tokenize({text: line}).forEach((token, tokenIndex) => {
+      if ((data.entities) && (index < data.entities.length) && (token === entity.term)) {
+        // Trim all values in entity
+        lineTokens[tokenIndex] = Object.fromEntries(
+          Object.entries(entity).map(([k, v]) => [k, v.trim()])
+        );
+        entity = data.entities[++index];
+      }
+    });
+    if (!isEmpty(lineTokens)) {
+      entities[lineIndex] = lineTokens;
+    }
+  });
+  return {...data, entities: entities, };
+};
+
+const capitalize = (string) => (
+  string.charAt(0).toUpperCase() + string.slice(1)
+);
+
+export { isEmpty, analyzePoem, capitalize };
